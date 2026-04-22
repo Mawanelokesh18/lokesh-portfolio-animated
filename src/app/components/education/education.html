@@ -1,0 +1,51 @@
+<section class="section education-section" id="education">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <div class="section-eyebrow">Academic Background</div>
+      <h2 class="section-title">Education</h2>
+      <p class="section-subtitle">The foundation of my technical journey</p>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card glass-card fade-in-up"
+           *ngFor="let edu of svc.education; let i = index"
+           [style.animation-delay]="i * 0.15 + 's'">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-body">
+          <h3 class="edu-degree">{{ edu.degree }}</h3>
+          <div class="edu-institution">
+            <i class="pi pi-map-marker"></i>
+            {{ edu.institution }}
+          </div>
+          <div class="edu-footer">
+            <span class="edu-period">
+              <i class="pi pi-calendar"></i>
+              {{ edu.period }}
+            </span>
+            <span class="edu-score">
+              <span class="score-label">{{ edu.scoreLabel }}</span>
+              <span class="score-value">{{ edu.score }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Languages & Extras -->
+    <div class="extras-section fade-in-up">
+      <h3 class="subsection-title">Languages</h3>
+      <div class="lang-badges">
+        <div class="lang-badge">
+          <span class="lang-flag">🇮🇳</span>
+          <span class="lang-name">Hindi</span>
+          <span class="lang-level">Native</span>
+        </div>
+        <div class="lang-badge">
+          <span class="lang-flag">🇬🇧</span>
+          <span class="lang-name">English</span>
+          <span class="lang-level">Professional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

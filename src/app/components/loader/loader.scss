@@ -1,0 +1,66 @@
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.05);
+  }
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loader-initials {
+  font-family: 'Syne', sans-serif;
+  font-size: 5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--indigo-light), var(--pink), var(--cyan));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 2s linear infinite;
+  line-height: 1;
+}
+
+.loader-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.loader-bar-wrap {
+  width: 260px;
+  height: 3px;
+  background: rgba(99,102,241,0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--indigo-light), var(--pink), var(--cyan));
+  border-radius: 999px;
+  transition: width 0.1s ease;
+  box-shadow: 0 0 12px var(--glow-cyan);
+}
+
+.loader-percent {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: 'DM Sans', monospace;
+}

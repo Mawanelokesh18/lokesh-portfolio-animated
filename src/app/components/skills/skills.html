@@ -1,0 +1,51 @@
+<section class="section skills-section" id="skills">
+  <div class="container">
+    <div class="section-header fade-in-up" #revealEl>
+      <div class="section-eyebrow">What I know</div>
+      <h2 class="section-title">Skills &amp; Technologies</h2>
+      <p class="section-subtitle">A toolkit built through real-world development experience</p>
+    </div>
+
+    <div class="skills-grid" #revealEl>
+      <div class="skill-cat-card"
+           *ngFor="let skill of svc.skills; let i = index"
+           [style.animation-delay]="i * 0.08 + 's'">
+        <div class="cat-icon">{{ skill.icon }}</div>
+        <div class="cat-name">{{ skill.category }}</div>
+        <div class="cat-tags">
+          <span class="cat-tag" *ngFor="let item of skill.items">{{ item }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-bars-section" #revealEl>
+      <h3 class="subsection-title">Proficiency</h3>
+      <div class="skill-bars">
+        <div class="skill-bar-row" *ngFor="let s of svc.skillBars; let i = index">
+          <div class="skill-bar-info">
+            <span class="skill-bar-name">{{ s.name }}</span>
+            <span class="skill-bar-pct">{{ animatedLevels[i] }}%</span>
+          </div>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill"
+                 [style.width.%]="animatedLevels[i]"
+                 [style.transition-delay]="i * 0.12 + 's'">
+              <div class="shimmer-sweep"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-cloud" #revealEl>
+      <h3 class="subsection-title">Tech Cloud</h3>
+      <div class="tag-cloud">
+        <span class="cloud-tag"
+              *ngFor="let tag of svc.allTechTags; let i = index"
+              [style.animation-delay]="i * 0.04 + 's'">
+          {{ tag }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,88 @@
+<section class="hero section" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <!-- Left Column -->
+      <div class="hero-left">
+        <div class="availability-tag">
+          <span class="pulse-dot"></span>
+          Available for Work
+        </div>
+        <h1 class="hero-name">
+          <span class="name-line">{{ svc.name.split(' ')[0] }}</span>
+          <span class="name-line accent-gradient">{{ svc.name.split(' ')[1] }}</span>
+        </h1>
+        <p class="hero-title">{{ svc.title }}</p>
+        <p class="hero-subtitle">{{ svc.subtitle }}</p>
+        <div class="hero-desc">
+          Backend-focused software engineer specializing in Spring Boot microservices,
+          enterprise-grade security with Keycloak &amp; OAuth 2.0, and Angular frontends.
+          Passionate about clean architecture and scalable systems.
+        </div>
+        <div class="hero-actions">
+          <button class="btn-primary" (click)="scrollTo('contact')">
+            <span>Get In Touch</span>
+            <i class="pi pi-arrow-right"></i>
+          </button>
+          <button class="btn-secondary" (click)="downloadCV()">
+            <i class="pi pi-download"></i>
+            <span>Download CV</span>
+          </button>
+        </div>
+        <div class="hero-social">
+          <a [href]="svc.github" target="_blank" class="social-link" title="GitHub">
+            <i class="pi pi-github"></i>
+          </a>
+          <a [href]="svc.linkedin" target="_blank" class="social-link" title="LinkedIn">
+            <i class="pi pi-linkedin"></i>
+          </a>
+          <a [href]="svc.leetcode" target="_blank" class="social-link" title="LeetCode">
+            <i class="pi pi-code"></i>
+          </a>
+          <a [href]="'mailto:' + svc.email" class="social-link" title="Email">
+            <i class="pi pi-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: 3D Floating Card -->
+      <div class="hero-right">
+        <div class="card-scene">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <div class="ring ring-1"></div>
+          <div class="ring ring-2"></div>
+          <div class="floating-card">
+            <div class="card-header">
+              <div class="card-avatar">{{ svc.initials }}</div>
+              <div>
+                <div class="card-name">{{ svc.name }}</div>
+                <div class="card-role">{{ svc.title }}</div>
+              </div>
+            </div>
+            <div class="card-divider"></div>
+            <div class="card-stats">
+              <div class="stat-item" *ngFor="let stat of svc.stats">
+                <div class="stat-value">{{ stat.value }}<span class="stat-unit">{{ stat.unit }}</span></div>
+                <div class="stat-label">{{ stat.label }}</div>
+              </div>
+            </div>
+            <div class="card-divider"></div>
+            <div class="card-tags">
+              <span class="mini-tag" *ngFor="let tag of ['Java','Spring Boot','Angular','Keycloak','MySQL']">{{ tag }}</span>
+            </div>
+            <div class="card-status">
+              <span class="status-dot"></span>
+              <span>Open to Opportunities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll Down</span>
+    </div>
+  </div>
+</section>

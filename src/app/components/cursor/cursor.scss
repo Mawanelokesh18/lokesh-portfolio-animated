@@ -1,0 +1,31 @@
+.cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan-light);
+  transition: transform 0.1s ease, width 0.2s, height 0.2s, background 0.2s;
+  &.hover {
+    width: 16px; height: 16px;
+    background: var(--pink);
+    box-shadow: 0 0 14px var(--pink);
+  }
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(99, 102, 241, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s;
+  &.hover {
+    width: 56px; height: 56px;
+    border-color: var(--pink-light);
+  }
+}

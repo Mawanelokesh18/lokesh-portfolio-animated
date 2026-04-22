@@ -1,0 +1,50 @@
+<section class="section experience-section" id="experience">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <div class="section-eyebrow">Where I've worked</div>
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">Building real-world systems from day one</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <div class="exp-card fade-in-left"
+           *ngFor="let exp of svc.experiences; let i = index"
+           [style.animation-delay]="i * 0.2 + 's'">
+        <div class="exp-dot">
+          <div class="exp-dot-inner"></div>
+        </div>
+        <div class="exp-content glass-card">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-title">{{ exp.title }}</h3>
+              <div class="exp-company">
+                <i class="pi pi-building"></i>
+                {{ exp.company }}
+              </div>
+            </div>
+            <div class="exp-meta">
+              <span class="exp-period">
+                <i class="pi pi-calendar"></i>
+                {{ exp.period }}
+              </span>
+              <span class="exp-type" [class.full-time]="exp.type === 'Full-time'">
+                {{ exp.type }}
+              </span>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li *ngFor="let bullet of exp.bullets">
+              <span class="bullet-dot"></span>
+              {{ bullet }}
+            </li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag" *ngFor="let tag of exp.tags">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

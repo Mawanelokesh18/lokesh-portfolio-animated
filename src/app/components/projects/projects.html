@@ -1,0 +1,36 @@
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <div class="section-eyebrow">What I've built</div>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Solving real problems through code</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="proj-card glass-card"
+           *ngFor="let proj of svc.projects; let i = index"
+           [style.animation-delay]="i * 0.15 + 's'">
+        <div class="proj-sweep"></div>
+        <div class="proj-emoji">{{ proj.emoji }}</div>
+        <div class="proj-header">
+          <h3 class="proj-name">{{ proj.name }}</h3>
+          <span class="proj-team">
+            <i class="pi pi-users"></i>
+            Team of {{ proj.teamSize }}
+          </span>
+        </div>
+        <p class="proj-desc">{{ proj.description }}</p>
+        <ul class="proj-bullets">
+          <li *ngFor="let b of proj.bullets">
+            <span class="proj-bullet-dot"></span>{{ b }}
+          </li>
+        </ul>
+        <div class="proj-footer">
+          <div class="proj-tech">
+            <span class="tech-chip" *ngFor="let t of proj.tech">{{ t }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
