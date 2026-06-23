@@ -10,7 +10,6 @@ import { PortfolioService } from '../../services/portfolio';
   styleUrls: ['./contact.scss']
 })
 export class ContactComponent implements AfterViewInit {
-https: any;
   constructor(public svc: PortfolioService) {}
   ngAfterViewInit() {
     const io = new IntersectionObserver(entries => {

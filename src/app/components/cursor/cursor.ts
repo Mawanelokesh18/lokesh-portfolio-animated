@@ -29,22 +29,26 @@ export class CursorComponent implements OnInit, OnDestroy {
       this.renderer.setStyle(dot, 'top', `${e.clientY}px`);
     };
 
-    const enterLink = () => {
-      this.renderer.addClass(dot, 'hover');
-      this.renderer.addClass(ring, 'hover');
+    // Use event delegation so dynamically added elements are also covered
+    const overLink = (e: MouseEvent) => {
+      const target = e.target as Element;
+      if (target.closest('a, button, [role="button"]')) {
+        this.renderer.addClass(dot, 'hover');
+        this.renderer.addClass(ring, 'hover');
+      }
     };
-    const leaveLink = () => {
-      this.renderer.removeClass(dot, 'hover');
-      this.renderer.removeClass(ring, 'hover');
+    const outLink = (e: MouseEvent) => {
+      const target = e.target as Element;
+      if (target.closest('a, button, [role="button"]')) {
+        this.renderer.removeClass(dot, 'hover');
+        this.renderer.removeClass(ring, 'hover');
+      }
     };
-
-    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
-      el.addEventListener('mouseenter', enterLink);
-      el.addEventListener('mouseleave', leaveLink);
-    });
 
     const rm1 = this.renderer.listen('document', 'mousemove', move);
-    this.listeners.push(rm1);
+    const rm2 = this.renderer.listen('document', 'mouseover', overLink);
+    const rm3 = this.renderer.listen('document', 'mouseout', outLink);
+    this.listeners.push(rm1, rm2, rm3);
 
     const animate = () => {
       this.ringX += (this.mouseX - this.ringX) * 0.12;

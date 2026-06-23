@@ -11,6 +11,7 @@ import { ContactComponent } from './components/contact/contact';
 import { ParticleCanvasComponent } from './components/particle-canvas/particle-canvas';
 import { CursorComponent } from './components/cursor/cursor';
 import { ScrollRevealService } from './services/scroll-reveal';
+import { PortfolioService } from './services/portfolio';
 
 @Component({
   selector: 'app-root',
@@ -50,11 +51,10 @@ import { ScrollRevealService } from './services/scroll-reveal';
       <footer class="footer">
         <div class="footer-inner">
           <span class="footer-logo">&lt;LM/&gt;</span>
-          <p>Crafted with ❤️ by <span class="accent">Lokesh Mawane</span> · {{ year }}</p>
           <div class="footer-links">
-            <a href="mailto:lokeshmawa@gmail.com">Email</a>
-            <a href="https://github.com" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a [href]="'mailto:' + svc.email">Email</a>
+            <a [href]="svc.github" target="_blank">GitHub</a>
+            <a [href]="svc.linkedin" target="_blank">LinkedIn</a>
           </div>
         </div>
       </footer>
@@ -154,7 +154,7 @@ export class App implements AfterViewInit, OnDestroy {
     'TypeScript', 'RBAC', 'SSO', 'Git', 'IntelliJ IDEA'
   ];
 
-  constructor(private scrollReveal: ScrollRevealService) {}
+  constructor(private scrollReveal: ScrollRevealService, public svc: PortfolioService) {}
 
   onLoaded() {
     this.loaded = true;

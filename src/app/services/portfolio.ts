@@ -21,7 +21,7 @@ export class PortfolioService {
   readonly initials = 'LM';
   readonly title = 'Associate Software Engineer';
   readonly subtitle = 'Backend · Full Stack · Security';
-  readonly email = 'lokeshmawa@gmail.com';
+  readonly email = 'lokeshmawane@gmail.com';
   readonly phone = '+91 8319098275';
   readonly location = 'Indore, M.P., India';
   readonly github = 'https://github.com/Mawanelokesh18';
@@ -30,7 +30,7 @@ export class PortfolioService {
 
   readonly stats = [
     { label: 'Experience', value: '1+', unit: 'yr' },
-    { label: 'Projects', value: '4+', unit: '' },
+    { label: 'Projects', value: '5+', unit: '' },
     { label: 'Tech Stack', value: '15+', unit: '' },
   ];
 
@@ -57,6 +57,7 @@ export class PortfolioService {
     'Java','Spring Boot','Angular','TypeScript','Keycloak','OAuth 2.0','JWT',
     'MySQL','Docker','Git','Postman','REST API','Microservices','RBAC',
     'OpenID Connect','HTML5','SCSS','IntelliJ','JMeter','DBeaver',
+    'Microsoft Graph API','AWS S3','Rate Limiting','Caching',
   ];
 
   readonly experiences: Experience[] = [
@@ -88,6 +89,29 @@ export class PortfolioService {
   ];
 
   readonly projects: Project[] = [
+    {
+      name: 'Interpanely', emoji: '🎙️', teamSize: 4,
+      description: 'End-to-end interview management platform to schedule, conduct, and track candidate interviews with panel members.',
+      bullets: [
+        'Designed and developed backend services using Spring Boot, exposing RESTful APIs for interview scheduling and panel management.',
+        'Integrated Microsoft Graph API for calendar-based meeting scheduling and automated interview invitations.',
+        'Implemented centralized authentication using Keycloak and OAuth 2.0 with SSO support across services.',
+        'Applied rate limiting and caching strategies to ensure system stability and performance under load.',
+        'Integrated AWS S3 for document and resource storage, and developed Angular-based frontend screens for panel workflows.',
+      ],
+      tech: ['Java', 'Spring Boot', 'Angular', 'Keycloak', 'OAuth 2.0', 'JWT', 'MySQL', 'Microsoft Graph API', 'AWS S3'],
+    },
+    {
+      name: 'Quotation Plus', emoji: '📋', teamSize: 3,
+      description: 'Full-stack quotation management platform enabling businesses to create, manage, and track quotations efficiently.',
+      bullets: [
+        'Built backend microservices using Spring Boot and designed RESTful APIs for quotation lifecycle management.',
+        'Implemented role-based access control (RBAC) and SSO using Keycloak and OAuth 2.0 for secure multi-user access.',
+        'Developed responsive frontend interfaces with Angular to streamline quotation creation and approval workflows.',
+        'Optimized database queries and integrated caching to improve application performance.',
+      ],
+      tech: ['Java', 'Spring Boot', 'Angular', 'Keycloak', 'OAuth 2.0', 'JWT', 'MySQL', 'Microservices'],
+    },
     {
       name: 'Smart Voting System', emoji: '🗳️', teamSize: 4,
       description: 'Secure web-based voting platform with facial recognition authentication to prevent duplicate voting.',
@@ -123,7 +147,7 @@ export class PortfolioService {
   ];
 
   readonly contactInfo = [
-    { icon: '✉️', label: 'Email', value: 'lokeshmawa@gmail.com', link: 'mailto:lokeshmawa@gmail.com' },
+    { icon: '✉️', label: 'Email', value: 'lokeshmawane@gmail.com', link: 'mailto:lokeshmawane@gmail.com' },
     { icon: '📞', label: 'Phone', value: '+91 8319098275', link: 'tel:+918319098275' },
     { icon: '📍', label: 'Location', value: 'Indore, M.P., India' },
     { icon: '💼', label: 'Status', value: 'Open to Opportunities' },

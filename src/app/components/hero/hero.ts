@@ -17,6 +17,9 @@ export class HeroComponent {
   }
 
   downloadCV() {
-    alert('CV download coming soon!');
+    const link = document.createElement('a');
+    link.href = 'assets/lokesh_mawane_resume.pdf';
+    link.download = 'Lokesh_Mawane_Resume.pdf';
+    link.click();
   }
 }

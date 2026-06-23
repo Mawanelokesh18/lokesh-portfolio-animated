@@ -22,6 +22,8 @@ export class ParticleCanvasComponent implements AfterViewInit, OnDestroy {
   private particles: Particle[] = [];
   private rafId = 0;
   private mouse = { x: 0, y: 0 };
+  private onResize = () => this.resize();
+  private onMouseMove = (e: MouseEvent) => { this.mouse.x = e.clientX; this.mouse.y = e.clientY; };
 
   ngAfterViewInit() {
     const canvas = this.canvasRef.nativeElement;
@@ -29,11 +31,15 @@ export class ParticleCanvasComponent implements AfterViewInit, OnDestroy {
     this.resize();
     this.initParticles();
     this.animate();
-    window.addEventListener('resize', () => this.resize());
-    window.addEventListener('mousemove', (e) => { this.mouse.x = e.clientX; this.mouse.y = e.clientY; });
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('mousemove', this.onMouseMove);
   }
 
-  ngOnDestroy() { cancelAnimationFrame(this.rafId); }
+  ngOnDestroy() {
+    cancelAnimationFrame(this.rafId);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('mousemove', this.onMouseMove);
+  }
 
   private resize() {
     const canvas = this.canvasRef.nativeElement;
