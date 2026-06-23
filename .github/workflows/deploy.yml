@@ -23,6 +23,11 @@ jobs:
       - name: Build
         run: npx ng build --configuration=production --base-href="/"
 
+      - name: Configure git identity
+        run: |
+          git config --global user.email "lokeshmawane@gmail.com"
+          git config --global user.name "Lokesh Mawane"
+
       - name: Deploy
         run: npx angular-cli-ghpages --dir=dist/lokesh-portfolio/browser
         env:
